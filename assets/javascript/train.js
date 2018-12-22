@@ -54,6 +54,7 @@
 
 
 database.ref().on("child_added", function(childSnapshot){
+
   let trName = childSnapshot.val().name;
   let trDestination =  childSnapshot.val().destination;
   let trArrival =  childSnapshot.val().arrival;
@@ -65,6 +66,42 @@ database.ref().on("child_added", function(childSnapshot){
   console.log(trFrequency);
 
 
+// *** Minutes until next Train *** //
+
+
+
+// Create now variable and put it in HH:mm format
+let now = moment().format("HH:mm");
+
+// This is grabbing the string the user input, is expecting it in HH:mm format (make sure it matches how user is entering)
+// and is creating a momentjs object that it can work with
+let arrivalTime = moment(trArrival, "HH:mm");
+
+// this is taking the now moment, expecting it in HH:mm format, then creates a moment object to use in comparison below.
+
+let newNow = moment(now, "HH:mm");
+
+// making comparison and spitting out minutes difference
+let trDiff = arrivalTime.diff(newNow, "m");
+
+
+console.log(now);
+console.log(arrivalTime);
+console.log(newNow);
+console.log(trDiff);
+
+
+
+
+//  console.log(minutesRemaining);
+
+
+
+
+
+
+
+
 
 
 
@@ -73,10 +110,22 @@ database.ref().on("child_added", function(childSnapshot){
     $("<td>").text(trDestination),
     $("<td>").text(trFrequency + " minutes"),
     $("<td>").text(trArrival),
+    $("<td>").text(trDiff)
   );
 
   // Append the new row to the table
   $("#trainTable > tbody").append(newRow);
 
 
+
+    // *** Nice Add. Add current time to header *** //
+
+
+  function currentTime (){
+    let date = moment().format("lll");
+    $("#currentTime").text(date);
+    setInterval(currentTime, 1000);
+  }
+
+  currentTime();
 });

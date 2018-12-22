@@ -21,7 +21,8 @@
 
         <div class="jumbotron">
             <h1 class="display-3">I'm a Train Timekeeper!!</h1>
-            <p class="lead" id="currentTime">Access the Firebase database</p>
+            <p class="lead">Access the Firebase database</p>
+            <p id="currentTime"></p>
 
         </div>
 
@@ -36,7 +37,7 @@
     * Frequency -- in minutes 
     -->
 
-    <div class="container tableContainer ">
+    <div class="container tableContainer table-condensed table-responsive">
         <table class="table table-hover" id="trainTable">
             <thead>
                 <tr>
@@ -56,14 +57,14 @@
 
     <div class="container formContainer">
 
-        <form>
+        <form class="form-inline">
             <div class="form-group">
               <label for="trainName">Name</label>
-              <input type="text" class="form-control" id="trainName" placeholder="Hogwarts Express">
+              <input type="text" class="form-control" id="trainName" placeholder="Train Name">
             </div>
             <div class="form-group">
               <label for="trainDestination">Destination</label>
-              <input type="text" class="form-control" id="trainDestination" placeholder="Hogwarts">
+              <input type="text" class="form-control" id="trainDestination" placeholder="Town / City">
             </div>
             <div class="form-group">
               <label for="trainArrivalTime">Arrival Time</label>

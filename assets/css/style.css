@@ -31,3 +31,11 @@ thead {
     background-color: rgb(56, 56, 56);
     color: white;
 }
+
+#currentTime {
+    color: rgb(141, 141, 141);
+}
+
+.form-control {
+    margin: 6px;
+}
